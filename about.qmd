@@ -9,7 +9,7 @@ about:
       href: https://twitter.com/kagglingdieter
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/dr-christof-henkel-766a54ba/
     - icon: github
       text: Github
       href: https://github.com/christofhenkel
