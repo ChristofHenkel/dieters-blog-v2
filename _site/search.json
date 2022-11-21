@@ -7,27 +7,6 @@
     "text": "This is a post with executable code."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "dieters-blog-v2",
-    "section": "",
-    "text": "Becoming world’s 1st - My first kaggle competition\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? I started like most kagglers - new to the field of data science and as python beginner\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nBecoming world’s 1st - Achieving competitions grandmaster\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? Becoming competitions grandmaster is part of it.\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nBecoming world’s 1st - My first gold medal\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? It takes quite some experience and effort to achieve even a single gold medal…\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 20, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nNov 17, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
     "objectID": "posts/2022-07-05-chapter-1.html",
     "href": "posts/2022-07-05-chapter-1.html",
     "title": "Becoming world’s 1st - My first kaggle competition",
@@ -70,6 +49,13 @@
     "text": "Becoming competitions grandmaster\nI already had collected quite some gold medals, yet the last and most difficult requirement to become competition grandmaster was to be done: earning a solo gold medal, i.e. fighting alone against all other participants, where most of them are united in small teams, and finishing in a top position.\nCompeting within a team has significant advantages. Obviously, you can split up tasks, iterate faster and explore more ideas given a fixed time. Moreover, you can discuss ideas and share knowledge. Even if you work independently and combine models just at the very end you would benefit from a significant blending effect. Working in a very active team is also quite motivating as you naturally do not want to disappoint your team members.\nNow, while the motivation aspect should not be an issue when finally aiming for grandmaster status, the fact that you, as an individual, need to compete against teams is challenging.\nAdditionally, depending on your personality, working weeks for a single goal creates a certain pressure. Even more since you compete in isolation for a goal which is of an all-or-nothing type. If you miss the gold medal by just a few places all was for nothing. (Of course it’s not completely for nothing as you have learned a few things at least, but it still feels like it). Hence its important to choose a suited competition when going for grandmaster. It should not only be interesting enough to provide fun during weeks of working alone, but also be challenging enough to leave room for unique ideas, separating you from others.\nAs such, I chose the Bengali.AI Handwritten Grapheme Classification challenge where competitors were asked to classify the components of handwritten Bengali. Thereby, three constituent elements have to be classified in each grapheme image: grapheme root, vowel diacritics, and consonant diacritics. I illustrate an exemplary grapheme which would be pronounced “pro” in english and consists of root “p”, consonant diacritic “r” and vowel diacritic “o”.\nBesides addressing interesting data properties such as class imbalance and high intra-class variability, understanding Bengali writing, characterized by a lot of exceptions and special cases, gave significant advantage in this competition. So, I started with setting up a solid baseline mode. Interestingly you can either classify root, vowel and consonant diacritics separately or predict the grapheme as a whole and derive root, vowel and consonant from that.\n\nYou can see an overview of the model architecture here:\n\nThe figure reads left to right. The input are original sized images at 137x236 resolution which are fed to a SeResNext50 which was pretrained on ImageNet. The features are then pooled and fed into a few fully connected layers before predicting root, vowel and consonant seperatly in the main head, and the grapheme as a whole in an auxiliary head. After tuning hyperparameters a bit, that model already put me at a good silver rank on the public leaderboard.\nAfter that I dedicated a lot of time to research the rules and special cases of Bengali writing and gained a lot of domain knowledge. In parallel, I examined my models predictions to see which classes were explicitly bad, and found the key to perform well in this competition: A further representation of one of the vowel diacritics was not present in the training data, although being present in the test data.\nInterestingly, and typical for Kaggle, top solutions addressed this issue differently, each in their own creative way. While some used Bengali ttf-fonts, the winning team used GANs to artificially generate images containing the missing representation. I used a completely different approach, as I learned through all my domain research that the missing representation is a mix of two available classes. I re-designed the training labels to a more granular level, which enabled the prediction of the missing mixed class.\nThat trick helped me to push my leaderboard score significantly and I finished 5th place out of over 2000 teams at the end.\n\nOverall, I think the experience and knowledge gained in the previous year in a dozen competitions enabled me to be very efficient in terms of code and modeling. Hence, I could spend time on researching the domain of Bengali writing, which was one of the competition specific challenges. The won solo gold medal resulted in Kaggle competitions grandmaster status, a title currently only 240 people hold world wide and one of my biggest achievements so far."
   },
   {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
     "objectID": "posts/2022-09-07-chapter-2.html",
     "href": "posts/2022-09-07-chapter-2.html",
     "title": "Becoming world’s 1st - My first gold medal",
@@ -82,5 +68,19 @@
     "title": "Becoming world’s 1st - My first gold medal",
     "section": "The first gold medal",
     "text": "The first gold medal\n2019 started with a very challenging and hence exciting competition: Human Protein Atlas Image Classification, where Kagglers were challenged to classify subcellular protein patterns in human cells. Not only data properties like the multi-class prediction with high class imbalance, lots of near duplicate images and external available data, but also the strong scientific domain working with four-channel immunofluorescence images made the competition quite exciting. Although the channels are separate gray images in their raw form, as soon as you combine them it creates a beautiful luminous and mesmerizing rgby image.\n{:height=“50%” width=“50%”}\nNow, the competition task was to classify the proteins, which have been marked by the green color.\nHaving gained a reputation as a vivid and hard working beginner, I was very lucky to be offered to join a team with experienced Kagglers, including some grandmasters. For my part, since I already had a good code base from previous computer vision competitions I could focus on solving the actual problem. I read a lot of cell-imaging related papers during the competition and after that I was able to contribute two model architectures which tackled especially the issue of varying scale in the cell images.\nThe first architecture is called GAPNet (short for Global Average Pooling Network) which is an underrated CNN architecture explicitly suited for scale invariance. The main idea is not to pool only the output of the last CNN block for the head of fully connected layers, but to pool the output of each CNN block and concatenate the results for an input to the fully connected layers. An illustration is shown below\n\n\n\ngapnet\n\n\nThe second architecture was a standard ResNet but with an auxiliary segmentation loss. Additionally to the “normal” classification loss I used the output of the last 32x32x128 layer within ResNet34 did Conv2D to 32x32x28 and then used a downsampling of the green channel with the according labels as ground truth mask to have a segmentation loss. This segmentation loss works like a regularizer which ensures attention on the relevant regions. The additional supervised attention added quite some benefit to regularization, and the computational cost was bearable. See below for illustration\n\n\n\nresnet\n\n\nYou can find the write-up of my part of the solution here\nUsing a big ensemble of state-of the art backbones and iterative pseudo-labeling our team achieved a fantastic 4th place resulting in the first gold medal of my Kaggle career. The icing on the cake was the possibility to co-author a competition related paper which was published in nature methods https://www.nature.com/articles/s41592-019-0658-6 . Overall it was an extremely valuable experience, especially learning from Russ Wolfinger, a well respected Kaggle grandmaster. Also the engagement of the HPA team (which hosted the competition) with answering all kinds of domain related questions was extraordinary, making it one of my favorite competitions."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "dieters-blog",
+    "section": "",
+    "text": "Becoming world’s 1st - Achieving competitions grandmaster\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? Becoming competitions grandmaster is part of it.\n\n\n\n\n\n\nNov 20, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBecoming world’s 1st - My first gold medal\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? It takes quite some experience and effort to achieve even a single gold medal…\n\n\n\n\n\n\nSep 7, 2022\n\n\n\n\n\n\n  \n\n\n\n\nBecoming world’s 1st - My first kaggle competition\n\n\n\n\n\n\n\nkaggle\n\n\n\n\nWhat does it take to become world’s number one in competitive machine learning? I started like most kagglers - new to the field of data science and as python beginner\n\n\n\n\n\n\nJul 5, 2022\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello, I’m Christof Henkel!\nI’m a deep learning researcher at NVIDIA. I’m particularly interested in novel deep learning architectures with respect to graphs, computer vision and audio. I have a background in probability theory and specialized in stochastic processes about which I did a PhD at the Ludwig-Maximilians-Univerity in Munich. I started kaggling 5 years ago and after participating in more than 50 competitions currently hold the 1st rank in the worl-wide competition ranking.\nGet in touch with me on Twitter (@kagglingdieter) or contact me via my kaggle profile"
   }
 ]

@@ -1,5 +1,5 @@
 ---
-title: "dieters-blog-v2"
+title: "dieters-blog"
 listing:
   contents: posts
   sort: "date desc"
@@ -8,7 +8,7 @@ listing:
   sort-ui: false
   filter-ui: false
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
 
 

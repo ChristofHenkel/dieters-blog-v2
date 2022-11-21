@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-11-20">
 <meta name="description" content="What does it take to become world’s number one in competitive machine learning? Becoming competitions grandmaster is part of it.">
 
-<title>dieters-blog-v2 - Becoming world’s 1st - Achieving competitions grandmaster</title>
+<title>dieters-blog - Becoming world’s 1st - Achieving competitions grandmaster</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">dieters-blog-v2</span>
+    <span class="navbar-title">dieters-blog</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -85,12 +86,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/christofhenkel"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/kagglingdieter"><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -120,6 +121,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta">
 
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 20, 2022</p>
+      </div>
+    </div>
     
       
     </div>
@@ -163,14 +170,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Additionally, depending on your personality, working weeks for a single goal creates a certain pressure. Even more since you compete in isolation for a goal which is of an all-or-nothing type. If you miss the gold medal by just a few places all was for nothing. (Of course it’s not completely for nothing as you have learned a few things at least, but it still feels like it). Hence its important to choose a suited competition when going for grandmaster. It should not only be interesting enough to provide fun during weeks of working alone, but also be challenging enough to leave room for unique ideas, separating you from others.</p>
 <p>As such, I chose the Bengali.AI Handwritten Grapheme Classification challenge where competitors were asked to classify the components of handwritten Bengali. Thereby, three constituent elements have to be classified in each grapheme image: grapheme root, vowel diacritics, and consonant diacritics. I illustrate an exemplary grapheme which would be pronounced “pro” in english and consists of root “p”, consonant diacritic “r” and vowel diacritic “o”.</p>
 <p>Besides addressing interesting data properties such as class imbalance and high intra-class variability, understanding Bengali writing, characterized by a lot of exceptions and special cases, gave significant advantage in this competition. So, I started with setting up a solid baseline mode. Interestingly you can either classify root, vowel and consonant diacritics separately or predict the grapheme as a whole and derive root, vowel and consonant from that.</p>
-<p><img src="{{site.baseurl}}/images/bengali_grapheme.png" class="img-fluid"></p>
+<p><img src="images/bengali_grapheme.png" class="img-fluid"></p>
 <p>You can see an overview of the model architecture here:</p>
-<p><img src="{{site.baseurl}}/images/bengali_model.png" class="img-fluid"></p>
+<p><img src="images/bengali_model.png" class="img-fluid"></p>
 <p>The figure reads left to right. The input are original sized images at 137x236 resolution which are fed to a SeResNext50 which was pretrained on ImageNet. The features are then pooled and fed into a few fully connected layers before predicting root, vowel and consonant seperatly in the main head, and the grapheme as a whole in an auxiliary head. After tuning hyperparameters a bit, that model already put me at a good silver rank on the public leaderboard.</p>
 <p>After that I dedicated a lot of time to research the rules and special cases of Bengali writing and gained a lot of domain knowledge. In parallel, I examined my models predictions to see which classes were explicitly bad, and found the key to perform well in this competition: A further representation of one of the vowel diacritics was not present in the training data, although being present in the test data.</p>
 <p>Interestingly, and typical for Kaggle, top solutions addressed this issue differently, each in their own creative way. While some used Bengali ttf-fonts, the winning team used GANs to artificially generate images containing the missing representation. I used a completely different approach, as I learned through all my domain research that the missing representation is a mix of two available classes. I re-designed the training labels to a more granular level, which enabled the prediction of the missing mixed class.</p>
 <p>That trick helped me to push my leaderboard score significantly and I finished 5th place out of over 2000 teams at the end.</p>
-<p><img src="{{site.baseurl}}/images/bengali_lb.png" class="img-fluid"></p>
+<p><img src="images/bengali_lb.png" class="img-fluid"></p>
 <p>Overall, I think the experience and knowledge gained in the previous year in a dozen competitions enabled me to be very efficient in terms of code and modeling. Hence, I could spend time on researching the domain of Bengali writing, which was one of the competition specific challenges. The won solo gold medal resulted in Kaggle competitions grandmaster status, a title currently only 240 people hold world wide and one of my biggest achievements so far.</p>
 
 
