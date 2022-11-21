@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Dieters Blog</title>
+<link>https://christofhenkel.github.io/dieters-blog-v2/index.html</link>
+<atom:link href="https://christofhenkel.github.io/dieters-blog-v2/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.2.269</generator>
+<lastBuildDate>Sat, 19 Nov 2022 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Becoming world’s 1st - Achieving competitions grandmaster</title>
+  <link>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-11-20-chapter-3.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="gathering-experience-inside-and-outside-of-kaggle" class="level2">
+<h2 class="anchored" data-anchor-id="gathering-experience-inside-and-outside-of-kaggle">Gathering experience inside and outside of kaggle</h2>
+<p>With the more robust yet flexible coding pipeline which I developed through the previous competitions, the pace at which I could iterate through ideas increased. The consequence was that I joined competitions at a later stage, but at the same time participated in more competitions within a year. With this strategy I further maximized learning experience continuing doing as diverse competitions as possible reaching from different complex NLP problems over bank transaction prediction to predicting molecular properties.</p>
+<p>Having a long term oriented mindset I focused on building reusable baselines and with growing expertise more and more parts of the work became standardized and I had more time to spend on trying extravagant ideas and reading research papers.</p>
+<p>I was lucky to achieve a few more gold medals this way, and started to create a strong reputation shining with outside the box solutions.</p>
+<p>Probably this reputation helped to join forces with two guys shocking the Kaggle community with top placements in competition after competition - The Zoo, consisting of <a href="https://www.kaggle.com/philippsinger">Philipp</a> and <a href="https://www.kaggle.com/dott1718">Dimitry</a>. We teamed for the <a href="https://www.kaggle.com/competitions/ieee-fraud-detection">IEEE-CIS Fraud Detection challenge</a>, where the task was to detect fraudulent customer transactions. Although the competition itself was not too exciting, working within a highly dedicated and communicative team was a real pleasure, setting the foundation for future collaborations. In the end, our team finished 6th out of over six thousand teams, which was the sixth gold medal within a year, a quantity that was unimaginable for me when starting my kaggle journey.</p>
+<p>At that time, I would have considered myself decently skilled in deep learning but not as one of the best within the Kaggle community. However, compared to people I had contact with in my daily job with a data science team at an insurance company, I was on a different planet. With local clients neither appreciating nor believing in the capabilities of deep learning I was frustrated with the lack of challenging problems, and consequently quit that job. Instead, together with two friends and kagglers I knew from my PhD time, I founded <a href="https://www.khumbu.ai/company">khumbu.ai</a>, a start-up providing state of the art deep learning based solutions. We were lucky to work with some local and international clients on interesting and challenging projects such as automated risk assessment, text-to-speech and document understanding.</p>
+<p>Although running a start-up was more work, it yet enabled me to distribute my time more flexibly. Also the synergy between work projects and kaggle competitions improved significantly, enabling to apply knowledge gained at kaggle to client’s problems and vice versa.</p>
+<p>Given the amount of time I spent on solving deep learning problems (kaggle competitions &amp; client projects) I gave the 2x GPU PC to my co-worker and upgraded to a new one containing 3x Geforce 1080 Ti, a better CPU and more RAM.</p>
+<p>In this year, I also published a lot of educational kernels and discussions earning not only grandmaster status in these two tiers but also recognition in the community.</p>
+</section>
+<section id="becoming-competitions-grandmaster" class="level2">
+<h2 class="anchored" data-anchor-id="becoming-competitions-grandmaster">Becoming competitions grandmaster</h2>
+<p>I already had collected quite some gold medals, yet the last and most difficult requirement to become competition grandmaster was to be done: earning a solo gold medal, i.e.&nbsp;fighting alone against all other participants, where most of them are united in small teams, and finishing in a top position.</p>
+<p>Competing within a team has significant advantages. Obviously, you can split up tasks, iterate faster and explore more ideas given a fixed time. Moreover, you can discuss ideas and share knowledge. Even if you work independently and combine models just at the very end you would benefit from a significant blending effect. Working in a very active team is also quite motivating as you naturally do not want to disappoint your team members.</p>
+<p>Now, while the motivation aspect should not be an issue when finally aiming for grandmaster status, the fact that you, as an individual, need to compete against teams is challenging.</p>
+<p>Additionally, depending on your personality, working weeks for a single goal creates a certain pressure. Even more since you compete in isolation for a goal which is of an all-or-nothing type. If you miss the gold medal by just a few places all was for nothing. (Of course it’s not completely for nothing as you have learned a few things at least, but it still feels like it). Hence its important to choose a suited competition when going for grandmaster. It should not only be interesting enough to provide fun during weeks of working alone, but also be challenging enough to leave room for unique ideas, separating you from others.</p>
+<p>As such, I chose the <a href="https://www.kaggle.com/c/bengaliai-cv19">Bengali.AI Handwritten Grapheme Classification challenge</a> where competitors were asked to classify the components of handwritten Bengali. Thereby, three constituent elements have to be classified in each grapheme image: grapheme root, vowel diacritics, and consonant diacritics. I illustrate an exemplary grapheme which would be pronounced “pro” in english and consists of root “p”, consonant diacritic “r” and vowel diacritic “o”.</p>
+<p align="center" width="100%">
+<img width="50%" src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/bengali_grapheme.png">
+</p>
+<p>Besides addressing interesting data properties such as class imbalance and high intra-class variability, understanding Bengali writing, characterized by a lot of exceptions and special cases, gave significant advantage in this competition. So, I started with setting up a solid baseline mode. Interestingly you can either classify root, vowel and consonant diacritics separately or predict the grapheme as a whole and derive root, vowel and consonant from that.</p>
+<p>You can see an overview of the model architecture here:</p>
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/bengali_model.png" class="img-fluid"></p>
+<p>The figure reads left to right. The input are original sized images at 137x236 resolution which are fed to a SeResNext50 which was pretrained on ImageNet. The features are then pooled and fed into a few fully connected layers before predicting root, vowel and consonant seperatly in the main head, and the grapheme as a whole in an auxiliary head. After tuning hyperparameters a bit, that model already put me at a good silver rank on the public leaderboard.</p>
+<p>After that I dedicated a lot of time to research the rules and special cases of Bengali writing and gained a lot of domain knowledge. In parallel, I examined my models predictions to see which classes were explicitly bad, and found the key to perform well in this competition: A further representation of one of the vowel diacritics was not present in the training data, although being present in the test data.</p>
+<p>Interestingly, and typical for Kaggle, top solutions addressed this issue differently, each in their own creative way. While some used Bengali ttf-fonts, the winning team used GANs to artificially generate images containing the missing representation. I used a completely different approach, as I learned through all my domain research that the missing representation is a mix of two available classes. I re-designed the training labels to a more granular level, which enabled the prediction of the missing mixed class.</p>
+<p>That trick helped me to push my leaderboard score significantly and I finished 5th place out of over 2000 teams at the end.</p>
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/bengali_lb.png" class="img-fluid"></p>
+<p>Overall, I think the experience and knowledge gained in the previous year in a dozen competitions enabled me to be very efficient in terms of code and modeling. Hence, I could spend time on researching the domain of Bengali writing, which was one of the competition specific challenges. The won solo gold medal resulted in Kaggle competitions grandmaster status, a title currently only 240 people hold world wide and one of my biggest achievements so far.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>kaggle</category>
+  <guid>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-11-20-chapter-3.html</guid>
+  <pubDate>Sat, 19 Nov 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://christofhenkel.github.io/dieters-blog-v2/posts/images/bengali_thumb.png" medium="image" type="image/png" height="139" width="144"/>
+</item>
+<item>
+  <title>Becoming world’s 1st - My first gold medal</title>
+  <link>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-09-07-chapter-2.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="the-first-silver-medals" class="level2">
+<h2 class="anchored" data-anchor-id="the-first-silver-medals">The first silver medals</h2>
+<p>Right after my very first competition, I followed-up with the <a href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge">Jigsaw Toxic Comment Classification Challenge</a>, a NLP competition with many participants. I learned from my previous mistakes, improved my code base and read kernels as well as discussions intensively. I joined forces with some other new kagglers, who I found via the discussion forum and we built a diverse and complex multi-level ensemble with many models involved. The next figure gives a rough overview.</p>
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/toxic_overview_v2.png" class="img-fluid"></p>
+<p>As this competition was pre-transformer we mixed all kinds of word/ character embedding models together with classic text models like TFIDF + NaiveBayesSVM. We then stacked for 2 levels using a neural network/ gradient boosting or hyperopt of simple average weights. At the end we had more than 50 models for the team. I believe nowadays a simple bert-base would beat the whole ensemble.</p>
+<p>The hard team work paid off and we were rewarded with my first silver medal, by finishing 53 place out of 4539 teams.</p>
+<p>The remaining year was characterized by steady progress in terms of algorithmic knowledge but also code quality. Both nourished by explicitly choosing diverse competition tasks such as image classification, image segmentation, time series prediction or product demand prediction. I tried to choose diversely to have maximum learning experience, yet focused on competitions where deep learning was the way to go. Persistence and hard work resulted in two more silver medals in that year.</p>
+<p>Highlight thereby was the <a href="https://www.kaggle.com/c/avito-demand-prediction">Avito Demand Prediction Challenge</a>, where competitors were asked to predict the demand of millions of products given their text and image information, with the interesting tweak that all text information is in russian language. It was quite exciting to learn how to build a combined neural network simultaneously processing image and text data, which illustrated the high degree of flexibility of deep learning. I was quite proud designing my first multi-input end2end architecture, which simultaneously takes image, text and features into account to predict a product demand score.</p>
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/avito_overview_v2.png" class="img-fluid"></p>
+<p>Our team finished 25th place, and you can find our write-up <a href="https://www.kaggle.com/competitions/avito-demand-prediction/discussion/59902">here</a>. With deep learning on the rise, all top solutions used an end2end neural network design. I am still coming back to read the details of those solutions, whenever there is a similar competition.</p>
+<p>During the year I also assembled my first multi-GPU desktop containing 2x GeForce 1070Ti, where it came handy that I had quite some experience in assembling PCs due to a part-time job I did in parallel to my school back in the days. I also saw some nice synergy effects with my daily job, where I could apply some of my Kaggle knowhow to projects, encouraging my path.</p>
+</section>
+<section id="the-first-gold-medal" class="level2">
+<h2 class="anchored" data-anchor-id="the-first-gold-medal">The first gold medal</h2>
+<p>2019 started with a very challenging and hence exciting competition: Human Protein Atlas Image Classification, where Kagglers were challenged to classify subcellular protein patterns in human cells. Not only data properties like the multi-class prediction with high class imbalance, lots of near duplicate images and external available data, but also the strong scientific domain working with four-channel immunofluorescence images made the competition quite exciting. Although the channels are separate gray images in their raw form, as soon as you combine them it creates a beautiful luminous and mesmerizing rgby image.</p>
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/thumb_chap2.png" class="img-fluid" style="width:50.0%"></p>
+<p>Now, the competition task was to classify the proteins, which have been marked by the green color.</p>
+<p>Having gained a reputation as a vivid and hard working beginner, I was very lucky to be offered to join a team with experienced Kagglers, including some grandmasters. For my part, since I already had a good code base from previous computer vision competitions I could focus on solving the actual problem. I read a lot of cell-imaging related papers during the competition and after that I was able to contribute two model architectures which tackled especially the issue of varying scale in the cell images.</p>
+<p>The first architecture is called GAPNet (short for Global Average Pooling Network) which is an underrated CNN architecture explicitly suited for scale invariance. The main idea is not to pool only the output of the last CNN block for the head of fully connected layers, but to pool the output of each CNN block and concatenate the results for an input to the fully connected layers. An illustration is shown below</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/gapnet.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">gapnet</figcaption><p></p>
+</figure>
+</div>
+<p>The second architecture was a standard ResNet but with an auxiliary segmentation loss. Additionally to the “normal” classification loss I used the output of the last 32x32x128 layer within ResNet34 did Conv2D to 32x32x28 and then used a downsampling of the green channel with the according labels as ground truth mask to have a segmentation loss. This segmentation loss works like a regularizer which ensures attention on the relevant regions. The additional supervised attention added quite some benefit to regularization, and the computational cost was bearable. See below for illustration</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://christofhenkel.github.io/dieters-blog-v2/posts/images/resnet_seg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">resnet</figcaption><p></p>
+</figure>
+</div>
+<p>You can find the write-up of my part of the solution <a href="https://www.kaggle.com/competitions/human-protein-atlas-image-classification/discussion/77300">here</a></p>
+<p>Using a big ensemble of state-of the art backbones and iterative pseudo-labeling our team achieved a fantastic 4th place resulting in the first gold medal of my Kaggle career. The icing on the cake was the possibility to co-author a competition related paper which was published in nature methods <a href="https://www.nature.com/articles/s41592-019-0658-6">https://www.nature.com/articles/s41592-019-0658-6</a> . Overall it was an extremely valuable experience, especially learning from <a href="https://www.kaggle.com/sasrdw">Russ Wolfinger</a>, a well respected Kaggle grandmaster. Also the engagement of the HPA team (which hosted the competition) with answering all kinds of domain related questions was extraordinary, making it one of my favorite competitions.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>kaggle</category>
+  <guid>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-09-07-chapter-2.html</guid>
+  <pubDate>Tue, 06 Sep 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://christofhenkel.github.io/dieters-blog-v2/posts/images/thumb_chap2.png" medium="image" type="image/png" height="145" width="144"/>
+</item>
+<item>
+  <title>Becoming world’s 1st - My first kaggle competition</title>
+  <link>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-07-05-chapter-1.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>What does it take to become world-wide #1 in competitive machine learning? Here, I want to recap my journey and share major insights I gained along the way to becoming rank #1 in the competitions ranking on Kaggle, the hardest thing I have done in my entire life.</p>
+<p>Starting as a Kaggle “goose” with zero data science knowledge four years ago, I am still astonished how my career path turned out. Especially, how completely self-teaching basics of machine learning by public available content (e.g.&nbsp;youtube, fastai) and exclusively advancing the knowledge by doing Kaggle competitions, ultimately resulted not only in the top spot within the biggest community of competitive data science, but also a dream job at NVIDIA, one of the most innovative and respected companies in the world when it comes to AI. Although the path was challenging with more than 50 competitions done in over four years it shows that practically everybody can achieve the same with enough dedication and discipline. As such, I want to encourage data science beginners or even people who are just curious about the topic of AI without any prior knowledge to start their own journey.</p>
+</section>
+<section id="about-kaggle" class="level2">
+<h2 class="anchored" data-anchor-id="about-kaggle">About Kaggle</h2>
+<p>Before diving into my journey I want to talk about Kaggle as it is a huge part of it. When I started, I thought of it as just a website that hosts machine learning competitions, but it is so much more. It offers a platform to share knowledge in form of discussions and code-kernels and motivates learning and sharing by awarding tiers and medals.</p>
+<p>The amount and the recency of knowledge that can be found on Kaggle is amazing. On the one hand, detailed solution summaries of a past competition, which are shared by top performing teams work like a concentrated place of knowledge for specific tasks (for example, computer vision - instance segmentation, NLP - question answering). On the other hand, competitors, especially at the highest level, are forced to keep up and implement the latest research papers in order to stand out and finish in top spots in competitions. Hence, top solutions often represent or even extend the current state of the art for a given problem.</p>
+<p>Furthermore the competitive aspect is a huge source of motivation. There is nothing more motivating than to see your work paying-off in climbing the public leaderboard (LB) during the weeks of a competition and the tension of the final hours when your private LB score, determining your final result, is revealed.</p>
+<p>Another important aspect is the option to join forces with other Kagglers and compete as a team. While it is possible to form a team with the intent to just average individual solutions to increase the chance of a competition result, the more interesting and long term beneficial approach is to choose team members you can learn from and discuss with. Not only helps teaming to connect with other data scientists across the globe but also enables you to learn how other people think and their diverse approaches help to look beyond your own nose.</p>
+<p>I also want to discuss how kaggling improves your coding skills. When I started in 2017 it was common to submit to a competition by inferring a given test set with a model you trained locally and uploading your resulting predictions via a submission.csv file to Kaggle.</p>
+<p>Nowadays, you have to create code in the form of a jupyter notebook or script within Kaggles infrastructure, which is then used to predict a completely hidden test set. This environment is not only ressource- but also runtime-restricted, which forces an efficient inference pipeline.</p>
+<p>Moreover, having to share the same inference environment within a team leads to developing important software developer skills such as readable clean code which is easy to understand and editable/ extendable by your team members. Both, efficient coding, as well as focus on enabling easy collaboration, are crucial skills for “real life” machine learning projects.</p>
+<p>In summary, I think intensely motivated confrontation with machine learning problems in a competitive environment together with the availability of knowledge, teaming experience and need for efficient coding skills offered by doing Kaggle competition(s) is magnitudes better than any regular study of machine learning in terms of quality and quantity.</p>
+<p>…and by the way, it’s FREE.</p>
+</section>
+<section id="how-it-started" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-started">How it started</h2>
+<p>So why did I register on Kaggle?</p>
+<p>After I studied business mathematics at the LMU in Munich, I was doing a PhD in mathematics with focus on modeling financial markets in cooperation with a large insurance company. Practically, I worked three days a week in the company and researched for my PhD in the remaining four. In the very last phase, after I submitted my thesis, I was waiting for all kinds of bureaucratic stuff to finally receive the PhD grade. So, suddenly I was facing a lot of free time.</p>
+<p>Since I had always been fascinated yet clueless with respect to artificial intelligence, I started to watch very basic YouTube videos about neural networks. I immediately was fascinated by the topic and followed up with a free coursera course where I not only learned a few basics but also did my first baby steps in coding with python. After that, I was looking for a dataset/ problem to further practice. That’s when I found Kaggle, I registered and with nothing to lose I joined my first competition: the TensorFlow Speech Recognition Challenge</p>
+</section>
+<section id="the-first-competition" class="level2">
+<h2 class="anchored" data-anchor-id="the-first-competition">The first competition</h2>
+<p>In the TensorFlow Speech Recognition Challenge competitors were asked to classify speech commands (e.g.&nbsp;start, stop, yes, no, etc) contained in 1 sec long audio clips.</p>
+<p>It certainly was a tough competition to begin my journey, but the small dataset made it accessible to beginners, enabling me to work on this competition with only a macbook and GCP credits awarded to newly registered students.</p>
+<p>At that point I was not only unfamiliar with audio processing and how to model it using machine learning, but also a beginner when it comes to python and even more clueless with respect to tensorflow 0.x (pytorch and keras practically did not exist back then). So, I spent a huge portion on setting up a baseline and learning tensorflow which was way more granular in the pre-keras aera compared to today. I was struggling with a lot of simple obstacles like reading audio data, understanding preprocessing or mixing in background noise as augmentation. Once I finally had a working code, I just tried random model architectures without any plan - didn’t read much in the forum, didn’t read kernels.</p>
+<p>Because I knew so little, I learned so much. It was mind blowing and so much fun, resulting in being one of the most pleasant competitions until now. I worked most of my free time on this competition and finished 218 out of 1313 teams, just missing any medal, but still not too bad for a total noob. Reading the top solution summaries showed several mistakes I made, the most important being not to research established model building blocks like VGG or ResNet, but building something completely random by myself. Also my code was not suited for quick experimentations or reproducibility. Nevertheless, the game was on. I was determined to learn from my mistakes and do better in the next competition.</p>
+<p>Realizing the fun I had with machine learning, I pursued a transition in my job by moving from risk management to a team which provided data science consulting.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>kaggle</category>
+  <guid>https://christofhenkel.github.io/dieters-blog-v2/posts/2022-07-05-chapter-1.html</guid>
+  <pubDate>Mon, 04 Jul 2022 22:00:00 GMT</pubDate>
+  <media:content url="https://christofhenkel.github.io/dieters-blog-v2/posts/images/tf_speech_thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
+</channel>
+</rss>
