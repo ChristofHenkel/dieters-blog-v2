@@ -13,12 +13,11 @@ toc-depth: 3
 
 page-layout: article
 
-#########################
-# You can skip this part in the first step
-format:
-  html:
-    include-after-body: ../footer.html
+website:
+  comments: 
+    utterances:
+      repo: ChristofHenkel/dieters-blog-v2
 
-comments: 
-  utterances: 
-    repo:  christofhenkel/dieters-blog
+
+
+
