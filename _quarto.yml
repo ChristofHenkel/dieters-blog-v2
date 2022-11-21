@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Dieters Blog"
+  site-url: "https://christofhenkel.github.io/dieters-blog-v2/"
   navbar:
     right:
       - about.qmd
@@ -11,10 +12,9 @@ website:
         href: https://github.com/christofhenkel
       - icon: twitter
         href: https://twitter.com/kagglingdieter
+      - icon: rss
+        href: https://christofhenkel.github.io/dieters-blog-v2/index.xml
 format:
   html:
     theme: cosmo
     css: styles.css
-
-
-
