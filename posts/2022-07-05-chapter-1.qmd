@@ -1,0 +1,58 @@
+---
+toc: true
+layout: post
+description: What does it take to become world's number one in competitive machine learning? I started like most kagglers - new to the field of data science and as python beginner
+categories: [kaggle]
+title: Becoming world's 1st - My first kaggle competition
+image: images/tf_speech_thumbnail.png
+comments: false
+---
+
+## Introduction
+
+What does it take to become world-wide \#1 in competitive machine learning? Here, I want to recap my journey and share major insights I gained along the way to becoming rank #1 in the competitions ranking on Kaggle, the hardest thing I have done in my entire life. 
+
+Starting as a Kaggle “goose” with zero data science knowledge four years ago, I am still astonished how my career path turned out. Especially, how completely self-teaching basics of machine learning by public available content (e.g. youtube, fastai) and exclusively advancing the knowledge by doing Kaggle competitions, ultimately resulted not only in the top spot within the biggest community of competitive data science, but also a dream job at NVIDIA, one of the most innovative and respected companies in the world when it comes to AI. Although the path was challenging with more than 50 competitions done in over four years it shows that practically everybody can achieve the same with enough dedication and discipline. As such, I want to encourage data science beginners or even people who are just curious about the topic of AI without any prior knowledge to start their own journey. 
+
+## About Kaggle
+
+Before diving into my journey I want to talk about Kaggle as it is a huge part of it. When I started, I thought of it as just a website that hosts machine learning competitions, but it is so much more. It offers a platform to share knowledge in form of discussions and code-kernels and motivates learning and sharing by awarding tiers and medals. 
+
+The amount and the recency of knowledge that can be found on Kaggle is amazing. On the one hand, detailed solution summaries of a past competition, which are shared by top performing teams work like a concentrated place of knowledge for specific tasks (for example, computer vision - instance segmentation, NLP - question answering). On the other hand, competitors, especially at the highest level, are forced to keep up and implement the latest research papers in order to stand out and finish in top spots in competitions. Hence, top solutions often represent or even extend the current state of the art for a given problem.
+
+Furthermore the competitive aspect is a huge source of motivation. There is nothing more motivating than to see your work paying-off in climbing the public leaderboard (LB) during the weeks of a competition and the tension of the final hours when your private LB score, determining your final result,  is revealed.
+
+Another important aspect is the option to join forces with other Kagglers and compete as a team. While it is possible to form a team with the intent to just average individual solutions to increase the chance of a competition result, the more interesting and long term beneficial approach is to choose team members you can learn from and discuss with. Not only helps teaming to connect with other data scientists across the globe but also enables you to learn how other people think and their diverse approaches help to look beyond your own nose. 
+
+I also want to discuss how kaggling improves your coding skills. When I started in 2017 it was common to submit to a competition by inferring a given test set with a model you trained locally and uploading your resulting predictions via a submission.csv file to Kaggle.
+ 
+Nowadays, you have to create code in the form of a jupyter notebook or script within Kaggles infrastructure, which is then used to predict a completely hidden test set. This environment is not only ressource- but also runtime-restricted, which forces an efficient inference pipeline.
+
+Moreover, having to share the same inference environment within a team leads to developing important software developer skills such as readable clean code which is easy to understand and editable/ extendable by your team members. Both, efficient coding, as well as focus on enabling easy collaboration, are crucial skills for “real life” machine learning projects. 
+
+In summary, I think intensely motivated confrontation with machine learning problems in a competitive environment together with the availability of knowledge, teaming experience and need for efficient coding skills offered by doing Kaggle competition(s) is magnitudes better than any regular study of machine learning in terms of quality and quantity. 
+
+...and by the way, it's FREE.
+
+## How it started
+
+So why did I register on Kaggle? 
+
+After I studied business mathematics at the LMU in Munich, I was doing a PhD in mathematics with focus on modeling financial markets in cooperation with a large insurance company. Practically, I worked three days a week in the company and researched for my PhD in the remaining four. In the very last phase, after I submitted my thesis, I was waiting for all kinds of bureaucratic stuff to finally receive the PhD grade. So, suddenly I was facing a lot of free time. 
+
+Since I had always been fascinated yet clueless with respect to artificial intelligence, I started to watch very basic YouTube videos about neural networks. I immediately was fascinated by the topic and followed up with a free coursera course where I not only learned a few basics but also did my first baby steps in coding with python. After that, I was looking for a dataset/ problem to further practice. That's when I found Kaggle, I registered and with nothing to lose I joined my first competition: the TensorFlow Speech Recognition Challenge
+
+
+
+## The first competition
+
+In the TensorFlow Speech Recognition Challenge competitors were asked to classify speech commands (e.g. start, stop, yes, no, etc) contained in 1 sec long audio clips.
+
+It certainly was a tough competition to begin my journey, but the small dataset made it accessible to beginners, enabling me to work on this competition with only a macbook and GCP credits awarded to newly registered students.
+
+At that point I was not only unfamiliar with audio processing and how to model it using machine learning, but also a beginner when it comes to python and even more clueless with respect to tensorflow 0.x (pytorch and keras practically did not exist back then). So, I spent a huge portion on setting up a baseline and learning tensorflow which was way more granular in the pre-keras aera compared to today. I was struggling with a lot of simple obstacles like reading audio data, understanding preprocessing or mixing in background noise as augmentation. Once I finally had a working code, I just tried random model architectures without any plan - didn’t read much in the forum, didn’t read kernels. 
+
+Because I knew so little, I learned so much. It was mind blowing and so much fun, resulting in being one of the most pleasant competitions until now. I worked most of my free time on this competition and finished 218 out of 1313 teams, just missing any medal, but still not too bad for a total noob.
+Reading the top solution summaries showed several mistakes I made, the most important being not to research established model building blocks like VGG or ResNet, but building something completely random by myself. Also my code was not suited for quick experimentations or reproducibility. Nevertheless, the game was on. I was determined to learn from my mistakes and do better in the next competition. 
+
+Realizing the fun I had with machine learning, I pursued a transition in my job by moving from risk management to a team which provided data science consulting.
